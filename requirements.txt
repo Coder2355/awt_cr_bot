@@ -1,0 +1,4 @@
+pyrogram
+tgcrypto
+requests
+multi-downloader-nx  # This assumes it's accessible as a package or via Git, see installation notes
