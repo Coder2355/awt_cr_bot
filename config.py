@@ -1,10 +1,10 @@
 # config.py
 
-# Telegram bot API details
-API_ID = "your_telegram_api_id"
-API_HASH = "your_telegram_api_hash"
-BOT_TOKEN = "your_telegram_bot_token"
+
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7444872585:AAHYzPX_gygFh9xYvu0-k7YOUg7BSG_hzHg")
+API_ID = int(os.environ.get("API_ID", "21740783"))
+API_HASH = os.environ.get("API_HASH", "a5dc7fec8302615f5b441ec5e238cd46")
 
 # Crunchyroll credentials
-CR_USERNAME = "your_crunchyroll_username"
-CR_PASSWORD = "your_crunchyroll_password"
+CR_USERNAME = "Doordasj@gmail.com"
+CR_PASSWORD = "MikiMiki51"
