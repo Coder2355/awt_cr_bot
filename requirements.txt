@@ -1,4 +1,4 @@
-pyrogram
-tgcrypto
-requests
-multi-downloader-nx  # This assumes it's accessible as a package or via Git, see installation notes
+pyrogram==2.0.106  # The Pyrogram version to interact with Telegram
+tgcrypto==1.2.3  # Required for Pyrogram to handle encrypted data efficiently
+requests==2.31.0  # To send HTTP requests for searching and downloading
+ffmpeg-python==0.2.0  # For handling video downloads and conversions
