@@ -77,13 +77,35 @@ async def download_and_send(client, callback_query):
 
 # Helper functions
 def search_gogoanime(query):
-    response = requests.get(f"{config.GOGOANIME_API_URL}/search?keyword={query}")
-    return response.json().get("results", [])
+    try:
+        response = requests.get(f"{config.GOGOANIME_API_URL}/search?keyword={query}")
+        response.raise_for_status()
+        
+        print(f"Response text for search: {response.text}")  # Log the raw response
+        if response.text.strip() == "":
+            print("Received empty response for search")
+            return []
+
+        return response.json().get("results", [])
+    except requests.exceptions.RequestException as e:
+        print(f"Error during API request: {e}")
+        return []
 
 def fetch_episodes(anime_id):
-    response = requests.get(f"{config.GOGOANIME_API_URL}/anime/{anime_id}/episodes")
-    return response.json().get("episodes", [])
+    try:
+        response = requests.get(f"{config.GOGOANIME_API_URL}/anime/{anime_id}/episodes")
+        response.raise_for_status()
 
+        print(f"Response text for episodes: {response.text}")  # Log the raw response
+        if response.text.strip() == "":
+            print(f"Received empty response for episodes of anime {anime_id}")
+            return []
+
+        return response.json().get("episodes", [])
+    except requests.exceptions.RequestException as e:
+        print(f"Error during API request: {e}")
+        return []
+        
 async def download_video(url, status_msg):
     # Placeholder for actual download code
     # Show ongoing status, e.g., "Downloading: 25%"
