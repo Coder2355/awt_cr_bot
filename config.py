@@ -1,11 +1,10 @@
+
 import os
-# config.py
 
+class Config:
+    API_ID = os.getenv("API_ID", "21740783")  # Your Telegram API ID
+    API_HASH = os.getenv("API_HASH", "a5dc7fec8302615f5b441ec5e238cd46")  # Your Telegram API hash
+    BOT_TOKEN = os.getenv("BOT_TOKEN", "7444872585:AAHYzPX_gygFh9xYvu0-k7YOUg7BSG_hzHg")  # Your bot token from BotFather
+    GOGOANIME_API_URL = "https://gogoanime.api"  # Base URL for Gogoanime API
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7444872585:AAHYzPX_gygFh9xYvu0-k7YOUg7BSG_hzHg")
-API_ID = int(os.environ.get("API_ID", "21740783"))
-API_HASH = os.environ.get("API_HASH", "a5dc7fec8302615f5b441ec5e238cd46")
-
-# Crunchyroll credentials
-CR_USERNAME = "Doordasj@gmail.com"
-CR_PASSWORD = "MikiMiki51"
+config = Config()
